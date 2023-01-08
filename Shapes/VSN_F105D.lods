@@ -1,0 +1,8 @@
+model = {
+	lods = {	
+		{"VSN_F105D.edm",500.000000};
+		{"VSN_F105D-lod01.edm",5000.000000};
+		{"VSN_F105G-lod02.edm",50000.000000};
+	};
+	collision_shell = "VSN_F105G-collision.edm";
+}
