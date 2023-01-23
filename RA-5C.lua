@@ -28,7 +28,7 @@ local Lehr 	= {
 
 local SENSOR_RADAR = {
 	
-	["AN/APD-7"] = 
+	["AN/ASG-18"] = 
 		{
 			type = RADAR_AS,
             scan_volume =
@@ -67,13 +67,13 @@ local SENSOR_RADAR = {
 }
 
 						
-RA-5C =  {
+VSN_YF12A =  {
       
 		Name 			= 'RA-5C',--AG
-		DisplayName		= _('RA-5C Vigilante'),--AG
+		DisplayName		= _('RA-5C Viglante'),--AG
         Picture 		= "RA-5C.png",
         Rate 			= "50",
-        Shape			= "RA-5C",--AG	
+        Shape			= "VSN_YF12A",--AG	
         WorldID			=  WSTYPE_PLACEHOLDER, 
         
 	shape_table_data 	= 
@@ -82,53 +82,19 @@ RA-5C =  {
 			file  	 	= 'RA-5C';--AG
 			life  	 	= 25; -- lifebar
 			vis   	 	= 2; -- visibility gain.
-			desrt    	= 'RA-5C-oblomok'; -- Name of destroyed object file name
+			desrt    	= 'VSN_YF12A-oblomok'; -- Name of destroyed object file name
 			fire  	 	= { 300, 2}; 			-- Fire on the ground after destoyed: 300sec 2m
-			username	= 'RA-5C';--AG
+			username	= 'VSN_YF12A';--AG
 			index       =  WSTYPE_PLACEHOLDER;
 			classname   = "lLandPlane";
 			positioning = "BYNORMAL";
 		},
 		{
-			name  		= "RA-5C-oblomok";
-			file  		= "RA-5C-oblomok";
+			name  		= "VSN_YF12A-oblomok";
+			file  		= "VSN_YF12A-oblomok";
 			fire  		= { 240, 2};
 		},
 	},
-	
-	net_animation ={--Beschreibung der externen Animation 32 Animationen begrenzen
-        --0, -- front gear
-		2,  -- nose wheel steering
-        --3, -- right gear
-        --5, -- left gear
-        --9, -- right flap
-        --10, -- left flap
-        	11, -- right aileron
-        	12, -- left aileron
-		--13, -- right slat
-		--14, -- left slat
-        	15, -- right elevator
-        	16, -- left elevator
-        	17, -- rudder
-        --21, -- SFM air brake
-        --25, -- tail hook
-		28, -- nachbrenner
-		29, -- nachbrenner
-		35, --	brakeshute
-		36, --	brakeshute
-		37, --	brakeshute
-        --38, -- canopy
-		89, -- Triebwerk
-		90, -- Triebwerk
-		--182, -- air brake
-        --190, -- left (red) navigation wing-tip light
-        --191, -- right (green) navigation wing-tip light
-        --192, -- tail (white) light
-        --198, -- anticollision (flashing red) top light
-        --199, -- anticollision (flashing red) bottom light
-        --208, -- taxi light (white) right main gear door
-		--209, -- taxi light (white) right main gear door
-    },	
 	
 	LandRWCategories = 
         {
@@ -164,12 +130,7 @@ RA-5C =  {
 	mapclasskey 		= "P0091000024",
 	attribute  			= {wsType_Air, wsType_Airplane, wsType_Fighter, WSTYPE_PLACEHOLDER, "Fighters", "Refuelable", "Datalink", "Link16"},
 	Categories= {"{78EFB7A2-FD52-4b57-A6A6-3BF0E1D6555F}", "Interceptor",},
-
-    --CanopyGeometry 	=	makeAirplaneCanopyGeometry(LOOK_AVERAGE, LOOK_AVERAGE, LOOK_AVERAGE), --F14/AV8B
-	--CanopyGeometry	=	makeAirplaneCanopyGeometry(LOOK_AVERAGE, LOOK_AVERAGE, LOOK_GOOD), --F16/FA18
-	--CanopyGeometry	=	makeAirplaneCanopyGeometry(LOOK_GOOD, LOOK_AVERAGE, LOOK_AVERAGE),--Su34
-	--CanopyGeometry 	=	makeAirplaneCanopyGeometry(LOOK_GOOD, LOOK_GOOD, LOOK_BAD), --F5
-
+	
 		M_empty						=	27604,	-- kg YF-12A; with pilot and nose load, F15
 		M_nominal					=	56200,	-- kg YF-12A; (Empty Plus Full Internal Fuel)
 		M_max						=	63504,	-- kg YF-12A;(Maximum Take Off Weight)
@@ -221,6 +182,7 @@ RA-5C =  {
 		wing_type 					= 	0,		-- 0=FIXED_WING/ 1=VARIABLE_GEOMETRY/ 2=FOLDED_WING/ 3=ARIABLE_GEOMETRY_FOLDED
 		length						=	30.97,  -- YF-12A
 		height						=	5.64,   -- YF-12A 
+		crew_size					=	2, --XX
 		engines_count				=	2, --XX
 		wing_tip_pos 				= 	{-3.404,	-0.164,	4.05},
 		
@@ -231,14 +193,7 @@ RA-5C =  {
                 {Transition = {"Close", "Open"},  Sequence = {{C = {{"Arg", 38, "to", 0.9, "in", 8.08},},},}, Flags = {"Reversible"},},
                 {Transition = {"Open", "Close"},  Sequence = {{C = {{"Arg", 38, "to", 0.0, "in", 6.743},},},}, Flags = {"Reversible", "StepsBackwards"},},
                 {Transition = {"Any", "Bailout"}, Sequence = {{C = {{"JettisonCanopy", 0},},},},},
-				--{Transition = {"Any", "Bailout"}, Sequence = {{C = {{"PosType", 8}, {"Sleep", "for", 2.0}}}, {C = {{"JettisonCanopy", 0}}}}},
             },
-			Door1 = {
-                {Transition = {"Close", "Open"},  Sequence = {{C = {{"Arg", 38, "to", 0.9, "in", 8.08},},},}, Flags = {"Reversible"},},
-                {Transition = {"Open", "Close"},  Sequence = {{C = {{"Arg", 38, "to", 0.0, "in", 6.743},},},}, Flags = {"Reversible", "StepsBackwards"},},
-                {Transition = {"Any", "Bailout"}, Sequence = {{C = {{"JettisonCanopy", 1},},},},},
-            },
-			--Door1 = {DuplicateOf = "Door0"},
             CrewLadder = {
                 {Transition = {"Dismantle", "Erect"}, Sequence = {{C = {{"Arg", 91, "to", -0.9, "in", 1.5}}}, {C = {{"Sleep", "for", 5.0}}}}, Flags = {"Reversible"}},
                 {Transition = {"Erect", "Dismantle"}, Sequence = {{C = {{"Arg", 91, "to", 0.0, "in", 2.7}}}, {C = {{"Sleep", "for", 0.0}}}}, Flags = {"Reversible", "StepsBackwards"}},
@@ -276,54 +231,44 @@ RA-5C =  {
 				afterburner_effect_texture = "afterburner_YF12A",
 			}, -- end of [2]
 		}, -- end of engines_nozzles
-
-		crew_size	 = 2,
 		crew_members = 
 		{
 			[1] = 
 			{
 				ejection_seat_name	= 58,--
-				drop_canopy_name	= "vsn_RA-5C-fonar1",
-				pilot_name			= 19,
-				pos 				= {14.961,0.634,0},
-				canopy_pos   		= {14.000,0.680,0},
-				ejection_added_speed = {-3,15,-3}, --pilot to the left
-				ejection_order    	= 2,
-				canopy_arg          = 38,
+				pilot_name			= 	19,
+				drop_canopy_name	= "vsn_yf12a-fonar1",
+				pos = {3.916,0.798,0},
 			}, -- end of [1]
 			[2] = 
 			{
 				ejection_seat_name	= 58,--
-				drop_canopy_name	= "vsn_RA-5C-fonar2",
-				pilot_name			= 19,
-				pos 				= {13.533,0.634,0},
-				canopy_pos   		= {12.800,0.680,0},
-				ejection_added_speed = {-3,15,3}, -- RIO to the right
-				ejection_order    	= 1,
-				canopy_arg          = 38,
+				pilot_name			= 	19,
+				drop_canopy_name	= "vsn_yf12a-fonar2",
+				pos = 	{3.916,0.798,0},
 			}, -- end of [2]
 		}, -- end of crew_members
-
+		
 		brakeshute_name	=	3,--Mig29=3/Su27=4/
 		is_tanker	=	false,
-		air_refuel_receptacle_pos = 	{9.703,	0.822,	0},
+		air_refuel_receptacle_pos = 	{10.0,	1.0,	0},
 		fires_pos = 
 		{
-			[1] = 	{-0.707,	0.553,	-0.213},-- Fuselage -- TODO evaluate - Made Dragon
-			[2] = 	{-0.037,	0.285,	1.391},-- Wing R In
-			[3] = 	{-0.037,	0.285,	-1.391},-- Wing L In
-			[4] = 	{-0.82,	0.265,	2.774},-- Wing R Mid
-			[5] = 	{-0.82,	0.265,	-2.774},-- Wing L Mid
-			[6] = 	{-0.82,	0.255,	4.274},-- Wing R Out
-			[7] = 	{-0.82,	0.255,	-4.274},-- Wing L Out
-			[8] = 	{-5.003,	0.261,	0},-- Engine R In -- TODO evaluate - Made Dragon
-			[9] = 	{-5.003,	0.261,	0},-- Engine L In -- TODO evaluate - Made Dragon
-			[10] = 	{-0.707,	0.453,	1.036},-- Engine R Out
-			[11] = 	{-0.707,	0.453,	-1.036},-- Engine L Out
+			[1] = 	{-0.707,	0.553,	-0.213},
+			[2] = 	{-0.037,	0.285,	1.391},
+			[3] = 	{-0.037,	0.285,	-1.391},
+			[4] = 	{-0.82,	0.265,	2.774},
+			[5] = 	{-0.82,	0.265,	-2.774},
+			[6] = 	{-0.82,	0.255,	4.274},
+			[7] = 	{-0.82,	0.255,	-4.274},
+			[8] = 	{-5.003,	0.261,	0},
+			[9] = 	{-5.003,	0.261,	0},
+			[10] = 	{-0.707,	0.453,	1.036},
+			[11] = 	{-0.707,	0.453,	-1.036},
 		}, -- end of fires_pos
 		
 		effects_presets = {
-			{effect = "OVERWING_VAPOR", file = current_mod_path.."/Effects/RA-5C_overwingVapor.lua"},
+			{effect = "OVERWING_VAPOR", file = current_mod_path.."/Effects/VSN_YF12A_overwingVapor.lua"},
 		},
 		
 		chaff_flare_dispenser = 
@@ -347,14 +292,14 @@ SingleChargeTotal 	= 180,
 chaff 				= {default = 90, increment = 45, chargeSz = 1},
 flare 				= {default = 45, increment = 45, chargeSz = 2}
  },
-
+	
         CanopyGeometry 	= {
             azimuth 	= {-145.0, 145.0},-- pilot view horizontal (AI)
             elevation 	= {-50.0, 90.0}-- pilot view vertical (AI)
         },
-	
+
 Sensors = {
-RADAR 			= "AN/APD-7", --"AN/APG-63" --"AN/APD-7"----RA-5C
+RADAR 			= "AN/ASG-18", --"AN/APG-63" --"AN/ASG-18"----YF-12A
 RWR 			  = "Abstract RWR"--F15
 },
 Countermeasures = {
@@ -483,15 +428,15 @@ Guns =  {
 },
 	
 	Tasks = {
-      	aircraft_task(CAS),
-		aircraft_task(Pinpoint Strike),
+      	aircraft_task(FighterSweep),
+		aircraft_task(Intercept),
 		aircraft_task(Reconnaissance),
      	aircraft_task(CAS),
     },	
-	DefaultTask = aircraft_task(Pinpoint Strike),
+	DefaultTask = aircraft_task(FighterSweep),
 
 	SFM_Data = {
-	aerodynamics = --RA-5C
+	aerodynamics = --YF-12A
 		{
 			Cy0	     =	0,
 			Mzalfa	 =	6.6, --geändert YF12 EB//von 5 auf 4 auf 6.6 (Tornado)
