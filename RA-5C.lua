@@ -1,18 +1,18 @@
 
 local fuselageLeft	= {
-	{ CLSID = "{7575BA0B-7294-4844-857B-031A144B2595}" ,arg_increment = 0, attach_point_position = {0, 0 ,0 } }, --AIM_54
-	{ CLSID = "{AIM_54C_Mk47}" , attach_point_position = {0, 0 ,0 } },
-	{ CLSID = "{AIM_54A_Mk47}" , attach_point_position = {0, 0 ,0 } },
+	{ CLSID = "{7575BA0B-7294-4844-857B-031A144B2595}" ,arg_increment = 0, attach_point_position = {0, 0 ,0 } }, --MK_82
+	{ CLSID = "{MK_82}" , attach_point_position = {0, 0 ,0 } },
+	{ CLSID = "{MK_82}" , attach_point_position = {0, 0 ,0 } },
 }
 local fuselageRight	= {
-	{ CLSID = "{7575BA0B-7294-4844-857B-031A144B2595}" ,arg_increment = 0, attach_point_position = {0, 0 ,0 } }, --AIM_54
-	{ CLSID = "{AIM_54C_Mk47}" , attach_point_position = {0, 0 ,0 } },
-	{ CLSID = "{AIM_54A_Mk47}" , attach_point_position = {0, 0 ,0 } },
+	{ CLSID = "{7575BA0B-7294-4844-857B-031A144B2595}" ,arg_increment = 0, attach_point_position = {0, 0 ,0 } }, --MK_82
+	{ CLSID = "{MK_82}" , attach_point_position = {0, 0 ,0 } },
+	{ CLSID = "{MK_82}" , attach_point_position = {0, 0 ,0 } },
 }
 local centerline 	= {
-	{ CLSID = "{7575BA0B-7294-4844-857B-031A144B2595}" ,arg_increment = 0, attach_point_position = {0, 0 ,0 } }, --AIM_54
-	{ CLSID = "{AIM_54C_Mk47}" , attach_point_position = {0, 0 ,0 } },
-	{ CLSID = "{AIM_54A_Mk47}" , attach_point_position = {0, 0 ,0 } },
+	{ CLSID = "{7575BA0B-7294-4844-857B-031A144B2595}" ,arg_increment = 0, attach_point_position = {0, 0 ,0 } }, --MK_82 
+	{ CLSID = "{MK_82}" , attach_point_position = {0, 0 ,0 } },
+	{ CLSID = "{MK_82}" , attach_point_position = {0, 0 ,0 } },
 }
 local Smoke 	= {
 	{ CLSID = "{INV-SMOKE-RED}" ,attach_point_position = {-2, 0 ,0 }},		--Smoke Generator - red
